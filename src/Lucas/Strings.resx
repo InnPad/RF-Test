@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CMD_CLEAR_EXAMPLE" xml:space="preserve">
+    <value>clear</value>
+  </data>
+  <data name="CMD_CLEAR_SUMMARY" xml:space="preserve">
+    <value>Clear the screen</value>
+  </data>
+  <data name="CMD_CLEAR_SYNTAX" xml:space="preserve">
+    <value>clear</value>
+  </data>
+  <data name="CMD_COUNT_EXAMPLE" xml:space="preserve">
+    <value>count circle ellipse</value>
+  </data>
+  <data name="CMD_COUNT_SUMMARY" xml:space="preserve">
+    <value>Returns the number of existing shape elements. If one or more shape types are specifies as arguments the result will be filtered. If no argument is specified all it will be the total of all.</value>
+  </data>
+  <data name="CMD_COUNT_SYNTAX" xml:space="preserve">
+    <value>count [shape1, ... shapeN]</value>
+  </data>
+  <data name="CMD_DELETE_EXAMPLE" xml:space="preserve">
+    <value>delete 5</value>
+  </data>
+  <data name="CMD_DELETE_SUCCESS" xml:space="preserve">
+    <value>=&gt; deleted shape: {0} {1}</value>
+  </data>
+  <data name="CMD_DELETE_SUMMARY" xml:space="preserve">
+    <value>Deletes a shape given a key.</value>
+  </data>
+  <data name="CMD_DELETE_SYNTAX" xml:space="preserve">
+    <value>delete</value>
+  </data>
+  <data name="CMD_DRAW_EXAMPLE" xml:space="preserve">
+    <value>draw auto</value>
+  </data>
+  <data name="CMD_DRAW_SUMMARY" xml:space="preserve">
+    <value>Draws a givven shape (by key) on the the existing WPF window. If the word auto is specified instead of the shape key, everytime a shape is listed it will get automatically drawn in at the target. It will also print the definition of the shape in the console with a friendly format. </value>
+  </data>
+  <data name="CMD_DRAW_SYNTAX" xml:space="preserve">
+    <value>draw auto | draw [shape1, ... shapeN]</value>
+  </data>
+  <data name="CMD_EXIT_EXAMPLE" xml:space="preserve">
+    <value>exit</value>
+  </data>
+  <data name="CMD_EXIT_SUMMARY" xml:space="preserve">
+    <value>Exit and close the application</value>
+  </data>
+  <data name="CMD_EXIT_SYNTAXIS" xml:space="preserve">
+    <value>exit</value>
+  </data>
+  <data name="CMD_HELP_EXAMPLE" xml:space="preserve">
+    <value>help draw circle</value>
+  </data>
+  <data name="CMD_HELP_SUMMARY" xml:space="preserve">
+    <value>Lists one or more shape and command definitions. If no argument is specifies it will list all commands and shapes definitions in that order.</value>
+  </data>
+  <data name="CMD_HELP_SYNTAX" xml:space="preserve">
+    <value>help [shape1, ... shapeN]</value>
+  </data>
+  <data name="CMD_LIST_EXAMPLE" xml:space="preserve">
+    <value>list circle ellipse</value>
+  </data>
+  <data name="CMD_LIST_SUMMARY" xml:space="preserve">
+    <value>List a set of shapes. If one or more shape types are specifies as arguments the result will be filtered. If no argument is specified all existing shapes will be enumerated.</value>
+  </data>
+  <data name="CMD_LIST_SYNTAX" xml:space="preserve">
+    <value>list [shape1, ... shapeN]</value>
+  </data>
+  <data name="CMD_LOAD_EXAMPLE" xml:space="preserve">
+    <value>load filename1 [filename2, ... filenameN]</value>
+  </data>
+  <data name="CMD_LOAD_SUMMARY" xml:space="preserve">
+    <value>Loads shape definitions from one or multiple files at once.</value>
+  </data>
+  <data name="CMD_LOAD_SYNTAX" xml:space="preserve">
+    <value>load</value>
+  </data>
+  <data name="CMD_OVER_EXAMPLE" xml:space="preserve">
+    <value>over 4</value>
+  </data>
+  <data name="CMD_OVER_SUMMARY" xml:space="preserve">
+    <value>Given a shape key, this command lists all the shapes that overlaps the given shape.</value>
+  </data>
+  <data name="CMD_OVER_SYNTAX" xml:space="preserve">
+    <value>over shape_element_key</value>
+  </data>
+  <data name="CMD_SAVE_EXAMPLE" xml:space="preserve">
+    <value>save lucas.txt</value>
+  </data>
+  <data name="CMD_SAVE_SUMMARY" xml:space="preserve">
+    <value>Saves shape definitions to file.</value>
+  </data>
+  <data name="CMD_SAVE_SYNTAX" xml:space="preserve">
+    <value>save filename</value>
+  </data>
+  <data name="ERROR_ARGUMENT_COUNT" xml:space="preserve">
+    <value>{0} requires {1} argument values and we got {2}.</value>
+  </data>
+  <data name="ERROR_ARGUMENT_TYPE" xml:space="preserve">
+    <value>Could not parse to {0} token \"{1}\" at position {2}.</value>
+  </data>
+  <data name="ERROR_FILE_NOT_FOUND" xml:space="preserve">
+    <value>File "{0}" was not found.</value>
+  </data>
+  <data name="ERROR_PRINT" xml:space="preserve">
+    <value>=&gt; Error: </value>
+  </data>
+  <data name="ERROR_SHAPE_NOT_FOUND" xml:space="preserve">
+    <value>Shape with key {0} was not found.</value>
+  </data>
+  <data name="ERROR_UNKNOW_REQUEST" xml:space="preserve">
+    <value>Your request doesn't seem valid.</value>
+  </data>
+  <data name="HELP_CMD_DEFINITION_FORMAT" xml:space="preserve">
+    <value>=&gt; {0}:\n\tSyntax: {1}:\n\tSummary: {2}\n\tExample: {3}</value>
+  </data>
+  <data name="HELP_SHAPE_DEFINITION_FORMAT" xml:space="preserve">
+    <value>=&gt; {0}:\n\tSummary: {1}\n\tExample: {2}</value>
+  </data>
+  <data name="LISTING_SHAPES_CONTAINING_POINT" xml:space="preserve">
+    <value>=&gt; Listing Shapes containin point at {0} {1}...</value>
+  </data>
+  <data name="LISTING_SHAPES_OVERLAPING_SHAPE" xml:space="preserve">
+    <value>=&gt; Listing Shapes overlaping {0} {1}...</value>
+  </data>
+  <data name="PROMPT" xml:space="preserve">
+    <value>&gt; </value>
+  </data>
+  <data name="PROMPT_FILE_OVERWRITE" xml:space="preserve">
+    <value>File "{0}" already exists. Do you want to overwrite it (y/n)?</value>
+  </data>
+  <data name="SHAPE_CIRCLE_EXAMPLE" xml:space="preserve">
+    <value>circle 1.7 -5.05 6.9</value>
+  </data>
+  <data name="SHAPE_CIRCLE_FORMAT" xml:space="preserve">
+    <value>circle with centre at ({0}, {1}) and radius {2}</value>
+  </data>
+  <data name="SHAPE_CIRCLE_SUMMARY" xml:space="preserve">
+    <value>Cirlce shape.</value>
+  </data>
+  <data name="SHAPE_COUNT_FORMAT" xml:space="preserve">
+    <value>=&gt; Count: {0}</value>
+  </data>
+  <data name="SHAPE_DONUT_EXAMPLE" xml:space="preserve">
+    <value>donut 4.5 7.8 1.5 1.8</value>
+  </data>
+  <data name="SHAPE_DONUT_FORMAT" xml:space="preserve">
+    <value>donut with centre at ({0}, {1}), internal radius {2} and external radius {3}</value>
+  </data>
+  <data name="SHAPE_DONUT_SUMMARY" xml:space="preserve">
+    <value>Donut shape. Delimited by two concentric circles.</value>
+  </data>
+  <data name="SHAPE_ELLIPSE_EXAMPLE" xml:space="preserve">
+    <value>ellipse 1.7 -5.05 6.9 4.6</value>
+  </data>
+  <data name="SHAPE_ELLIPSE_FORMAT" xml:space="preserve">
+    <value>ellipse with centre at ({0}, {1}), width {2} and height {3}</value>
+  </data>
+  <data name="SHAPE_ELLIPSE_SUMMARY" xml:space="preserve">
+    <value>Ellipse shape.</value>
+  </data>
+  <data name="SHAPE_POLYGON_EXAMPLE" xml:space="preserve">
+    <value>polygon 34 32 45 32 34 65 43 56</value>
+  </data>
+  <data name="SHAPE_POLYGON_FORMAT" xml:space="preserve">
+    <value>polygon with vertexes {0}</value>
+  </data>
+  <data name="SHAPE_POLYGON_SUMMARY" xml:space="preserve">
+    <value>A convex poligon. The number of sides is restricted from 3 to 9.</value>
+  </data>
+  <data name="SHAPE_PRINT" xml:space="preserve">
+    <value>=&gt; shape {0}: </value>
+  </data>
+  <data name="SHAPE_RECTANGLE_EXAMPLE" xml:space="preserve">
+    <value>rectangle 3.5 2.0 5.6 7.2</value>
+  </data>
+  <data name="SHAPE_RECTANGLE_FORMAT" xml:space="preserve">
+    <value>rectangle with top left cornet at ({0}, {1}), height {2} and width {3}</value>
+  </data>
+  <data name="SHAPE_RECTANGLE_SUMMARY" xml:space="preserve">
+    <value>Rectangle shape. Four sides, all internal angles measure 90 degrees.</value>
+  </data>
+  <data name="SHAPE_SQUARE_EXAMPLE" xml:space="preserve">
+    <value>square 3.55 4.1 2.77</value>
+  </data>
+  <data name="SHAPE_SQUARE_FORMAT" xml:space="preserve">
+    <value>square with top left corner at ({0}, {1}) and length {2}</value>
+  </data>
+  <data name="SHAPE_SQUARE_SUMMARY" xml:space="preserve">
+    <value>Square shape. Four sides with same length, all internal angles measure 90 degrees.</value>
+  </data>
+  <data name="SHAPE_TRIANGLE_EXAMPLE" xml:space="preserve">
+    <value>triangle 4.5 1 -2.5 -33 23 0.3</value>
+  </data>
+  <data name="SHAPE_TRIANGLE_FORMAT" xml:space="preserve">
+    <value>triangle with vertices at ({0}, {1}), ({2}, {3}) and ({4}, {5})</value>
+  </data>
+  <data name="SHAPE_TRIANGLE_SUMMARY" xml:space="preserve">
+    <value>Triangle shape. Three sides.</value>
+  </data>
+</root>
