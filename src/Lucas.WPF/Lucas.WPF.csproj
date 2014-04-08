@@ -35,8 +35,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Messaging" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -61,14 +61,20 @@
     <Compile Include="..\Lucas\Drawing\Canvas.cs">
       <Link>Drawing\Canvas.cs</Link>
     </Compile>
-    <Compile Include="..\Lucas\Drawing\IConvexPolygon.cs">
-      <Link>Drawing\IConvexPolygon.cs</Link>
-    </Compile>
     <Compile Include="..\Lucas\Drawing\IEllipse.cs">
       <Link>Drawing\IEllipse.cs</Link>
     </Compile>
     <Compile Include="..\Lucas\Drawing\IHollowShape.cs">
       <Link>Drawing\IHollowShape.cs</Link>
+    </Compile>
+    <Compile Include="..\Lucas\Drawing\Interception.cs">
+      <Link>Drawing\Interception.cs</Link>
+    </Compile>
+    <Compile Include="..\Lucas\Drawing\InterceptionTypes.cs">
+      <Link>Drawing\InterceptionTypes.cs</Link>
+    </Compile>
+    <Compile Include="..\Lucas\Drawing\IPolygon.cs">
+      <Link>Drawing\IPolygon.cs</Link>
     </Compile>
     <Compile Include="..\Lucas\Drawing\IShape.cs">
       <Link>Drawing\IShape.cs</Link>
@@ -79,8 +85,11 @@
     <Compile Include="..\Lucas\Drawing\Point.cs">
       <Link>Drawing\Point.cs</Link>
     </Compile>
-    <Compile Include="..\Lucas\Drawing\ShapeDescriptor.cs">
-      <Link>Drawing\ShapeDescriptor.cs</Link>
+    <Compile Include="..\Lucas\Drawing\Polynomial.cs">
+      <Link>Polynomial.cs</Link>
+    </Compile>
+    <Compile Include="..\Lucas\Drawing\ShapeDefinition.cs">
+      <Link>Drawing\ShapeDefinition.cs</Link>
     </Compile>
     <Compile Include="..\Lucas\Drawing\Shapes\Circle.cs">
       <Link>Drawing\Shapes\Circle.cs</Link>
@@ -100,14 +109,20 @@
     <Compile Include="..\Lucas\Drawing\Shapes\Square.cs">
       <Link>Drawing\Shapes\Square.cs</Link>
     </Compile>
+    <Compile Include="..\Lucas\Drawing\Shapes\Star.cs">
+      <Link>Drawing\Shapes\Star.cs</Link>
+    </Compile>
     <Compile Include="..\Lucas\Drawing\Shapes\Triangle.cs">
       <Link>Drawing\Shapes\Triangle.cs</Link>
+    </Compile>
+    <Compile Include="..\Lucas\Drawing\Vector.cs">
+      <Link>Vector.cs</Link>
     </Compile>
     <Compile Include="..\Lucas\Extensions.cs">
       <Link>Extensions.cs</Link>
     </Compile>
-    <Compile Include="..\Lucas\Intersection.cs">
-      <Link>Intersection.cs</Link>
+    <Compile Include="..\Lucas\Shapes.cs">
+      <Link>Shapes.cs</Link>
     </Compile>
     <Compile Include="..\Lucas\Strings.Designer.cs">
       <Link>Strings.Designer.cs</Link>
@@ -116,12 +131,16 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Drawing\Shapes\ToWindowsShape.cs" />
+    <Compile Include="Drawing\ToWindowsShape.cs" />
+    <Compile Include="Commands.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

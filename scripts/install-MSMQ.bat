@@ -1,0 +1,1 @@
+@powershell -noexit "& '.\install-MSMQ.ps1'"

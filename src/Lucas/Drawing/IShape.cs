@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lucas.Drawing
 {
-    public interface IShape
+    public partial interface IShape
     {
         /// <summary>
         /// Surface area

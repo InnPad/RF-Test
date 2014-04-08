@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lucas.Drawing.Shapes
 {
-    public class Ellipse : IShape, IEllipse
+    public partial class Ellipse : IShape, IEllipse
     {
         public static Ellipse Create(params double[] args)
         {
@@ -53,9 +53,9 @@ namespace Lucas.Drawing.Shapes
                 var other = that as IEllipse;
                 return Interception.IntersectEllipseEllipse(Centre, XRadius, YRadius, other.Centre, other.XRadius, other.YRadius);
             }
-            else if (that is IConvexPolygon)
+            else if (that is IPolygon)
             {
-                var other = that as IConvexPolygon;
+                var other = that as IPolygon;
                 return Interception.IntersectEllipsePolygon(Centre, XRadius, YRadius, other.Points);
             }
 

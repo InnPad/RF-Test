@@ -499,6 +499,19 @@ namespace Lucas.Drawing
             };
         }
 
+        public static bool IntersectPolygonPoint(Point[] poly, Point point)
+        {
+            int i, j;
+            bool c = false;
+            for (i = 0, j = poly.Length - 1; i < poly.Length; j = i++)
+            {
+                if (((poly[i].Y > point.Y) != (poly[j].Y > point.Y)) &&
+                 (point.X < (poly[j].X - poly[i].X) * (point.Y - poly[i].Y) / (poly[j].Y - poly[i].Y) + poly[i].X))
+                    c = !c;
+            }
+            return c;
+        }
+
         public static Interception IntersectPolygonPolygon(Point[] points1, Point[] points2)
         {
             var points = new List<Point>();

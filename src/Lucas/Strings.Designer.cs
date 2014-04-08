@@ -358,6 +358,15 @@ namespace Lucas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Can&apos;t write messages to queue \&quot;{0}\&quot;..
+        /// </summary>
+        internal static string ERROR_CANT_WRITE_TO_QUEUE {
+            get {
+                return ResourceManager.GetString("ERROR_CANT_WRITE_TO_QUEUE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to File &quot;{0}&quot; was not found..
         /// </summary>
         internal static string ERROR_FILE_NOT_FOUND {
@@ -556,7 +565,7 @@ namespace Lucas {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A convex poligon. The number of sides is restricted from 3 to 9..
+        ///   Looks up a localized string similar to A poligon. The number of sides is 3 or more..
         /// </summary>
         internal static string SHAPE_POLYGON_SUMMARY {
             get {
@@ -628,6 +637,24 @@ namespace Lucas {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to start 100 100 50 50 20 5.
+        /// </summary>
+        internal static string SHAPE_STAR_EXAMPLE {
+            get {
+                return ResourceManager.GetString("SHAPE_STAR_EXAMPLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A star is a polygo that has at least 3 outer edges and it is constructed from the center, the first outer edge,  the radio of the internal edge, and the number of outer edges (the total internal edges is the same)..
+        /// </summary>
+        internal static string SHAPE_STAR_SUMMARY {
+            get {
+                return ResourceManager.GetString("SHAPE_STAR_SUMMARY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to triangle 4.5 1 -2.5 -33 23 0.3.
         /// </summary>
         internal static string SHAPE_TRIANGLE_EXAMPLE {
@@ -651,6 +678,15 @@ namespace Lucas {
         internal static string SHAPE_TRIANGLE_SUMMARY {
             get {
                 return ResourceManager.GetString("SHAPE_TRIANGLE_SUMMARY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WARNING: .
+        /// </summary>
+        internal static string WARNING_PRINT {
+            get {
+                return ResourceManager.GetString("WARNING_PRINT", resourceCulture);
             }
         }
     }

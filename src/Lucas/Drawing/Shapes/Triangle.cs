@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lucas.Drawing.Shapes
 {
-    public class Triangle : IShape, IConvexPolygon
+    public partial class Triangle : IShape, IPolygon
     {
         public static Triangle Create(params double[] args)
         {
@@ -42,7 +42,9 @@ namespace Lucas.Drawing.Shapes
 
         public bool Contains(Point point)
         {
-            var v0 = new Point { X = C.X - A.X, Y = C.Y - A.Y };
+            return Interception.IntersectPolygonPoint(Points, point);
+
+            /*var v0 = new Point { X = C.X - A.X, Y = C.Y - A.Y };
             var v1 = new Point { X = B.X - A.X, Y = B.Y - A.Y };
             var v2 = new Point { X = point.X - A.X, Y = point.Y - A.Y };
 
@@ -59,7 +61,7 @@ namespace Lucas.Drawing.Shapes
             var u = (dot11 * dot01 - dot01 * dot12) * invDenom;
             var v = (dot00 * dot12 - dot01 * dot02) * invDenom;
 
-            return (u >= 0) && (v >= 0) && (u + v < 1);
+            return (u >= 0) && (v >= 0) && (u + v < 1);*/
         }
 
         public bool Contains(IShape that)
@@ -75,9 +77,9 @@ namespace Lucas.Drawing.Shapes
                 var other = that as IEllipse;
                 return Interception.IntersectEllipsePolygon(other.Centre, other.XRadius, other.YRadius, Points);
             }
-            else if (that is IConvexPolygon)
+            else if (that is IPolygon)
             {
-                var other = that as IConvexPolygon;
+                var other = that as IPolygon;
                 return Interception.IntersectPolygonPolygon(other.Points, Points);
             }
 

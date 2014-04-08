@@ -75,6 +75,11 @@ namespace Lucas.Drawing
             get { return _elements.Keys.ToArray(); }
         }
 
+        public void Clear()
+        {
+            _elements.Clear();
+        }
+
         public IShape Remove(int key)
         {
             IShape value;
@@ -94,21 +99,21 @@ namespace Lucas.Drawing
             if (tokens.Length == 0 || string.IsNullOrEmpty(tokens[0]))
                 return false;
 
-            int key, start = 0;
+            int key;
             if (int.TryParse(tokens[0], out key))
             {
                 result = new KeyValuePair<int?, IShape>(key, null);
-                start = 1;
+                tokens = tokens.Skip(1).ToArray();
             }
 
             ShapeDefinition descriptor;
 
-            if (!_definitions.TryGetValue(tokens[start].ToLower(), out descriptor))
+            if (!_definitions.TryGetValue(tokens[0].ToLower(), out descriptor))
                 return false;
 
-            var args = new double[tokens.Length - (start  + 1)];
+            var args = new double[tokens.Length - 1];
 
-            for (var i = start; i < args.Length; i++)
+            for (var i = 0; i < args.Length; i++)
             {
                 double.TryParse(tokens[i + 1], out args[i])
                     // Evaluate precondition. All arguments must be a double type

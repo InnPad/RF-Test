@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lucas.Drawing.Shapes
 {
-    public class Square : IShape, IConvexPolygon
+    public partial class Square : IShape, IPolygon
     {
         public static Square Create(params double[] args)
         {
@@ -56,9 +56,9 @@ namespace Lucas.Drawing.Shapes
                 var other = that as IEllipse;
                 return Interception.IntersectEllipseRectangle(other.Centre, other.XRadius, other.YRadius, TopLeft, TopLeft.Offset(Length, Length));
             }
-            else if (that is IConvexPolygon)
+            else if (that is IPolygon)
             {
-                var other = that as IConvexPolygon;
+                var other = that as IPolygon;
                 return Interception.IntersectPolygonRectangle(other.Points, TopLeft, TopLeft.Offset(Length, Length));
             }
 

@@ -1,0 +1,2 @@
+Import-Module servermanager
+Remove-WindowsFeature MSMQ

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lucas.Drawing
 {
-    public interface IConvexPolygon
+    public interface IPolygon
     {
         Point[] Points { get; }
     }

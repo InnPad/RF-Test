@@ -1,0 +1,1 @@
+@powershell -noexit "& '.\uninstall-MSMQ.ps1'"

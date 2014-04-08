@@ -216,6 +216,9 @@
   <data name="ERROR_ARGUMENT_TYPE" xml:space="preserve">
     <value>Could not parse to {0} token \"{1}\" at position {2}.</value>
   </data>
+  <data name="ERROR_CANT_WRITE_TO_QUEUE" xml:space="preserve">
+    <value>Can't write messages to queue \"{0}\".</value>
+  </data>
   <data name="ERROR_FILE_NOT_FOUND" xml:space="preserve">
     <value>File "{0}" was not found.</value>
   </data>
@@ -283,7 +286,7 @@
     <value>polygon with vertexes {0}</value>
   </data>
   <data name="SHAPE_POLYGON_SUMMARY" xml:space="preserve">
-    <value>A convex poligon. The number of sides is restricted from 3 to 9.</value>
+    <value>A poligon. The number of sides is 3 or more.</value>
   </data>
   <data name="SHAPE_PRINT" xml:space="preserve">
     <value>=&gt; shape {0}: </value>
@@ -306,6 +309,12 @@
   <data name="SHAPE_SQUARE_SUMMARY" xml:space="preserve">
     <value>Square shape. Four sides with same length, all internal angles measure 90 degrees.</value>
   </data>
+  <data name="SHAPE_STAR_EXAMPLE" xml:space="preserve">
+    <value>start 100 100 50 50 20 5</value>
+  </data>
+  <data name="SHAPE_STAR_SUMMARY" xml:space="preserve">
+    <value>A star is a polygo that has at least 3 outer edges and it is constructed from the center, the first outer edge,  the radio of the internal edge, and the number of outer edges (the total internal edges is the same).</value>
+  </data>
   <data name="SHAPE_TRIANGLE_EXAMPLE" xml:space="preserve">
     <value>triangle 4.5 1 -2.5 -33 23 0.3</value>
   </data>
@@ -314,5 +323,8 @@
   </data>
   <data name="SHAPE_TRIANGLE_SUMMARY" xml:space="preserve">
     <value>Triangle shape. Three sides.</value>
+  </data>
+  <data name="WARNING_PRINT" xml:space="preserve">
+    <value>WARNING: </value>
   </data>
 </root>

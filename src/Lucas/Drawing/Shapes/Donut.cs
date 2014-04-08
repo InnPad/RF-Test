@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lucas.Drawing.Shapes
 {
-    public class Donut : IEllipse, IHollowShape
+    public partial class Donut : IEllipse, IHollowShape
     {
         public static Donut Create(params double[] args)
         {
@@ -17,8 +17,8 @@ namespace Lucas.Drawing.Shapes
             return new Donut
             {
                 Centre = new Point { X = args[0], Y = args[1] },
-                InternalRadius = args[2],
-                ExternalRadius = args[3]
+                InternalRadius = Math.Min(args[2], args[3]),
+                ExternalRadius = Math.Max(args[2], args[3])
             };
         }
 
@@ -71,9 +71,9 @@ namespace Lucas.Drawing.Shapes
                 var other = that as IEllipse;
                 inter = Interception.IntersectCircleEllipse(Centre, ExternalRadius, other.Centre, other.XRadius, other.YRadius);
             }
-            else if (that is IConvexPolygon)
+            else if (that is IPolygon)
             {
-                var other = that as IConvexPolygon;
+                var other = that as IPolygon;
                 inter = Interception.IntersectCirclePolygon(Centre, ExternalRadius, other.Points);
             }
 

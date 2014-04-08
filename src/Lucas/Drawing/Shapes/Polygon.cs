@@ -9,25 +9,56 @@ namespace Lucas.Drawing.Shapes
     /// <summary>
     /// Convex Polygon
     /// </summary>
-    public class Polygon : IShape, IConvexPolygon
+    public partial class Polygon : IShape, IPolygon
     {
         public static Polygon Create(params double[] args)
         {
-            (args.Length > 5)
-                // Evaluate precondition. A polygon must be contructed from at least 6 arguments
-                .Assert(true, () => Strings.ERROR_PRINT + string.Format(Strings.ERROR_ARGUMENT_COUNT, "polygon", 6, args.Length));
-
-            (args.Length % 2)
-                // Evaluate precondition. A polygon must be contructed from an even number arguments
-                .Assert(0, () => Strings.ERROR_PRINT + string.Format(Strings.ERROR_ARGUMENT_COUNT, "polygon", 2 * (1 + (int)(args.Length / 2)), args.Length));
-
-            return new Polygon
+            if (args.Length.Equals(5))
             {
-                Points = args.Select((value, index) => new { Index = index, Value = value })
-                    .GroupBy(pair => pair.Index / 2)
-                    .Select(group => new Point { X = group.First().Value, Y = group.Last().Value })
-                    .ToArray()
-            };
+                // Fast regrulary poliedral initialization
+
+                Point center = new Point { X = args[0], Y = args[1] }, start = new Point { X = args[2], Y = args[3] };
+                var edges = new List<Point> { start };
+                var n = args[4];
+                var dx = start.X - center.X;
+                var dy = start.Y - center.Y;
+                var r = Math.Sqrt(Math.Pow(dy, 2) + Math.Pow(dy, 2));
+                var a = 2 * Math.PI / n;
+                var a0 = Math.Asin(dx / r);
+               
+                for (var i = 1; i < n; i++) 
+                {
+                    var ai = a0 + i * a;
+
+                    if (ai > 2 * Math.PI)
+                        ai -= 2 * Math.PI;
+
+                    edges.Add(new Point { X = Math.Round(center.X + r * Math.Cos(ai), 2), Y = Math.Round(center.Y + r * Math.Sin(ai)) });
+                }
+
+                return new Polygon
+                {
+                    Points = edges.ToArray()
+                };
+            }
+            else
+            {
+                (args.Length > 5)
+                    // Evaluate precondition. A polygon must be contructed from at least 6 arguments
+                    .Assert(true, () => Strings.ERROR_PRINT + string.Format(Strings.ERROR_ARGUMENT_COUNT, "polygon", 6, args.Length));
+
+                (args.Length % 2)
+                    // Evaluate precondition. A polygon must be contructed from an even number arguments
+                    .Assert(0, () => Strings.ERROR_PRINT + string.Format(Strings.ERROR_ARGUMENT_COUNT, "polygon", 2 * (1 + (int)(args.Length / 2)), args.Length));
+
+                return new Polygon
+                {
+                    Points = args.Select((value, index) => new { Index = index, Value = value })
+                        .GroupBy(pair => pair.Index / 2)
+                        .Select(group => new Point { X = group.First().Value, Y = group.Last().Value })
+                        .ToArray()
+                };
+            }
         }
 
         private Point[] _points;
@@ -50,7 +81,7 @@ namespace Lucas.Drawing.Shapes
 
         public bool Contains(Point point)
         {
-            return ToTriangles().Any(triangle => triangle.Contains(point));
+            return Interception.IntersectPolygonPoint(Points, point);
         }
 
         public bool Contains(IShape that)
@@ -66,9 +97,9 @@ namespace Lucas.Drawing.Shapes
                 var other = that as IEllipse;
                 return Interception.IntersectEllipsePolygon(other.Centre, other.XRadius, other.YRadius, Points);
             }
-            else if (that is IConvexPolygon)
+            else if (that is IPolygon)
             {
-                var other = that as IConvexPolygon;
+                var other = that as IPolygon;
                 return Interception.IntersectPolygonPolygon(Points, other.Points);
             }
 
@@ -98,7 +129,7 @@ namespace Lucas.Drawing.Shapes
         {
             var points = Points;
 
-            var triangles = new Triangle[points.Length - 2];
+            var triangles = new Triangle[points.Length - 3];
 
             for (var i = 2; i < points.Length - 1; i++)
             {
