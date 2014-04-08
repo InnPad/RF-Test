@@ -66,7 +66,7 @@ namespace Lucas
             _pipeStream = new NamedPipeServerStream("datapipe", PipeDirection.InOut, 10, PipeTransmissionMode.Message, PipeOptions.WriteThrough, 1024, 1024, ps);
             _pipeWriter = new StreamWriter(_pipeStream);
 
-            Console.WriteLine(Dns.GetHostEntry(Dns.GetHostName()).AddressList.Single(a => a.AddressFamily == AddressFamily.InterNetwork).ToString());
+            Console.WriteLine(Dns.GetHostEntry(Dns.GetHostName()).AddressList.FirstOrDefault(a => a.AddressFamily == AddressFamily.InterNetwork));
 
             var thread = new Thread(() =>
             {
