@@ -80,6 +80,47 @@ Please ignore that error and continue to run "the last successful build".
 
 3. Moving the mouse over the WPF application provides feedback about the position and the shapes under the cursor.
 
+4. Type `clear` and hit enter.
+
+    All your shapes will remain on the console repository, but the console screen will be cleared, and if you had the WPF application opened, it will be cleared as well.
+
+5. Enable sending all shapes resulting from a query to the WPF canvas at once
+
+    Type `draw auto` and hit enter.
+
+6. Now query all the shapes intersecting the donut (key 37)
+
+    Type `over 37` and hit enter.
+
+    Now you should be getting all these shapes listed
+
+    `=> Listing Shapes overlaping 37 donut with centre at (410, 431), internal radius 78 and external radius 137`
+    `=> shape 17: polygon with vertexes (350, 350), (310.72, 339), (300, 365), (289.28, 339), (263, 350), (274.13, 324), (247.67, 313), (274.13, 302), (263, 276), (289.28, 287), (300, 261), (310.72, 287), (337, 276), (325.87, 302), (352.33, 313, (325.87, 324)`
+    `=> shape 18: polygon with vertexes (450, 350), (403.13, 344), (383.31, 357), (382.18, 333), (363.68, 318), (385.86, 310), (394.25, 288), (409.08, 306), (432.76, 307), (419.75, 327)`
+    `=> shape 19: polygon with vertexes (560, 330), (504.65, 303), (504.56, 345), (497.15, 304), (469.99, 336), (490.99, 299), (449.46, 307), (489.04, 292), (452.58, 271), (492.22, 285), (477.89, 246), (499.04, 282), (513.54, 242), (506.31, 284), (542.86, 263), (510.63, 290), (552.13, 298), (509.97, 298)`
+    `=> shape 23: polygon with vertexes (250, 462), (208.59, 381), (183.22, 505), (186.17, 378), (73.07, 436), (174.16, 359), (58.51, 306), (181.62, 338), (150.49, 215), (202.91, 330), (279.76, 229), (222.01, 342), (348.96, 339), (224.54, 365)`
+    `=> shape 24: polygon with vertexes (350, 451), (295.08, 396), (200.28, 405), (286.56, 365), (326.72, 278), (318.35, 373)`
+    `=> shape 26: polygon with vertexes (560, 467), (503.29, 433), (464.69, 481), (481.29, 422), (423.18, 400), (485.15, 397), (487.83, 335), (509.53, 393), (569.3,377), (520.74, 415)`
+    `=> shape 27: polygon with vertexes (660, 450), (613.42, 410), (619.54, 475), (598, 413), (567.88, 471), (583.22, 407), (526.41, 440), (573.77, 395), (508.31, 392), (572.64, 379), (519.32, 341), (580.2, 365), (555.95, 304), (594.05, 358), (606.56, 293), (609.78, 359), (655.09, 311), (622.42, 368), (686.13, 353), (627.93, 383), (689.82, 405), (624.58, 398)`
+    `=> shape 31: polygon with vertexes (350, 550), (311.41, 535), (304.81, 566), (293.01, 537), (268.36, 556), (277.88, 526), (246.73, 525), (273.1, 509), (250.01, 488), (280.91, 492), (276.69, 461), (297.65, 484), (314.27, 458), (315.49, 489), (345.18, 479), (326.08, 504), (354.94, 516), (324.47, 522)`
+    `=> shape 32: polygon with vertexes (450, 550), (404.14, 493), (373.65, 576), (388.69, 489), (301.65, 504), (384.55, 474), (328, 406), (395.86, 463), (426.35, 380), (411.31, 467), (498.35, 452), (415.45, 482)`
+    `=> shape 33: polygon with vertexes (560, 550), (500, 522), (449, 550), (477, 499), (449, 448), (500, 476), (551, 448), (523, 499)`
+    `=> shape 39: circle with centre at (432, 331) and radius 60`
+    `=> shape 40: rectangle with top left cornet at (540, 431), height 84 and width 84`
+
+    And if you had the WPF canvas open, those shapes are displayed as well
+
+    ![alt text](https://github.com/lucasoromi/RF-Test/raw/master/images/wpf-screenshot-query.png "WPF application screenshot")
+
+7. Now lets display the donut itself
+
+    Type `draw 37` and hit enter.
+
+    ![alt text](https://github.com/lucasoromi/RF-Test/raw/master/images/wpf-screenshot-overlay.png "WPF application screenshot")
+
+    Now you have the full picture!
+
+
 # Help
 
 ## Commands
