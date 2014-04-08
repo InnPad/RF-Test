@@ -18,20 +18,25 @@ namespace Lucas.Drawing.Shapes
                 // Fast regrulary poliedral initialization
 
                 Point center = new Point { X = args[0], Y = args[1] }, start = new Point { X = args[2], Y = args[3] };
-                var edges = new List<Point> { start };
+                var edges = new List<Point>();
                 var n = args[4];
                 var dx = start.X - center.X;
                 var dy = start.Y - center.Y;
                 var r = Math.Sqrt(Math.Pow(dy, 2) + Math.Pow(dy, 2));
-                var a = 2 * Math.PI / n;
-                var a0 = Math.Asin(dx / r);
-               
-                for (var i = 1; i < n; i++) 
-                {
-                    var ai = a0 + i * a;
+                var a = (2 * Math.PI) / n;
+                var ai = Math.Asin(dy / r);
+                var ac = Math.Acos(dx / r);
+                var at = Math.Atan(dy / dx);
 
-                    if (ai > 2 * Math.PI)
-                        ai -= 2 * Math.PI;
+                if (Math.Abs(ai - ac) > 0.001 && Math.Abs(ac - at) < 0.001)
+                    ai = ac;
+                               
+                for (var i = 0; i < n; i++) 
+                {
+                    ai += a;
+
+                    if (ai > (2 * Math.PI))
+                        ai -= (2 * Math.PI);
 
                     edges.Add(new Point { X = Math.Round(center.X + r * Math.Cos(ai), 2), Y = Math.Round(center.Y + r * Math.Sin(ai)) });
                 }

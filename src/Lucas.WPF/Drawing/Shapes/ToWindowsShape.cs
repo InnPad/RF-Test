@@ -95,6 +95,9 @@ namespace Lucas.Drawing.Shapes
                 shape.Points.Add(new System.Windows.Point { X = point.X, Y = point.Y });
             }
 
+            // close
+            shape.Points.Add(new System.Windows.Point { X = Points[0].X, Y = Points[0].Y });
+
             var color = this.Color(192);
             var fill = new System.Windows.Media.SolidColorBrush(color);
             shape.Fill = fill;
