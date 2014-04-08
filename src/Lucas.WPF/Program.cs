@@ -37,10 +37,16 @@ namespace Lucas
             InitializeCommands();
             InitializeShapes();
 
-            var ip = Dns.GetHostEntry(Dns.GetHostName()).AddressList.Single(a => a.AddressFamily == AddressFamily.InterNetwork).ToString();
-            _pipeStream = new NamedPipeClientStream(ip, "datapipe", PipeDirection.InOut, PipeOptions.WriteThrough, TokenImpersonationLevel.Impersonation);
-            _pipeReader = new StreamReader(_pipeStream);
-            _pipeStream.InitializeLifetimeService();
+            try
+            {
+                var ip = (Dns.GetHostEntry(Dns.GetHostName()).AddressList.FirstOrDefault(a => a.AddressFamily == AddressFamily.InterNetwork) ?? (object)string.Empty).ToString();
+                _pipeStream = new NamedPipeClientStream(ip, "datapipe", PipeDirection.InOut, PipeOptions.WriteThrough, TokenImpersonationLevel.Impersonation);
+                _pipeReader = new StreamReader(_pipeStream);
+                _pipeStream.InitializeLifetimeService();
+            }
+            catch (Exception e)
+            {
+            }
 
             _thread = new Thread(MessageLoop);
             _thread.Start();
