@@ -21,7 +21,6 @@ namespace Lucas
     {
         private readonly Canvas _canvas;
         private NamedPipeServerStream _pipeStream;
-        private StreamWriter _pipeWriter;
         private bool _autodraw = false;
         private bool _continue = true;
         private Dictionary<string, CommandDefinition> _commands;
@@ -64,7 +63,6 @@ namespace Lucas
             //ps.AddAccessRule(new PipeAccessRule("SYSTEM", PipeAccessRights.FullControl, AccessControlType.Allow));
             //ps.AddAccessRule(pa);
             _pipeStream = new NamedPipeServerStream("datapipe", PipeDirection.InOut, 10, PipeTransmissionMode.Message, PipeOptions.WriteThrough, 1024, 1024, ps);
-            _pipeWriter = new StreamWriter(_pipeStream);
 
             Console.WriteLine(Dns.GetHostEntry(Dns.GetHostName()).AddressList.FirstOrDefault(a => a.AddressFamily == AddressFamily.InterNetwork));
 
@@ -82,7 +80,6 @@ namespace Lucas
                     {
                         Console.WriteLine(Strings.ERROR_PRINT + e.Message);
                         _pipeStream = new NamedPipeServerStream("datapipe", PipeDirection.InOut, 10, PipeTransmissionMode.Message, PipeOptions.WriteThrough, 1024, 1024, ps);
-                        _pipeWriter = new StreamWriter(_pipeStream);
                     }
             });
             thread.Start();
@@ -120,8 +117,7 @@ namespace Lucas
 
                         if (_autodraw)
                         {
-                            _pipeWriter.Write("clear");
-                            _pipeWriter.Flush();
+                            _pipeStream.Send("clear");
                         }
 
                         foreach (var overlap in _canvas.Elements.Where(o => o.Value != null && o.Value.Contains(point)))
@@ -131,8 +127,7 @@ namespace Lucas
 
                             if (_autodraw)
                             {
-                                _pipeWriter.WriteLine(string.Join(" ", overlap.Key, overlap.Value.Stringify()));
-                                _pipeWriter.Flush();
+                                _pipeStream.Send(string.Join(" ", overlap.Key, overlap.Value.Stringify()));
                             }
                         }
                     }
@@ -184,8 +179,7 @@ namespace Lucas
 
                 Console.Write(Strings.SHAPE_PRINT, key);
                 Console.WriteLine(result.Value.Print());
-                _pipeWriter.WriteLine(string.Join(" ", key, result.Value.Stringify()));
-                _pipeWriter.Flush();
+                _pipeStream.Send(string.Join(" ", key, result.Value.Stringify()));
 
                 return true;
             }

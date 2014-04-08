@@ -43,8 +43,7 @@ namespace Lucas
                         // Evaluate precondition. A circle must be contructed from 3 arguments
                         .Assert(0, () => string.Format(Strings.ERROR_ARGUMENT_COUNT, "clear", 0, args.Length));
 
-                    _pipeWriter.WriteLine("clear");
-                    _pipeWriter.Flush();
+                    _pipeStream.Send("clear");
 
                     Console.Clear();
                 });
@@ -78,8 +77,7 @@ namespace Lucas
 
                             var shape = _canvas.Remove(key);
 
-                            _pipeWriter.WriteLine("delete {0}", key);
-                            _pipeWriter.Flush();
+                            _pipeStream.Send("delete {0}", key);
 
                             if (shape != null)
                             {
@@ -131,8 +129,7 @@ namespace Lucas
 
                             if (_autodraw)
                             {
-                                _pipeWriter.WriteLine(string.Join(" ", key, shape.Stringify()));
-                                _pipeWriter.Flush();
+                                _pipeStream.Send(string.Join(" ", key, shape.Stringify()));
                             }
                         }
                         else
@@ -150,8 +147,7 @@ namespace Lucas
                 perform: (string[] args) =>
                 {
                     _continue = false;
-                    _pipeWriter.WriteLine("exit");
-                    _pipeWriter.Flush();
+                    _pipeStream.Send("exit");
                     Console.Clear();
                 });
 
@@ -217,8 +213,7 @@ namespace Lucas
                     {
                         if (_autodraw)
                         {
-                            _pipeWriter.WriteLine("clear");
-                            _pipeWriter.Flush();
+                            _pipeStream.Send("clear");
                         }
                         var matches = _canvas.Keys.Select(key => new { Key = key, Value = _canvas[key] }).Where(o => o.Value != null && args.Contains(o.Value.GetType().Name.ToLower())).ToArray();
                         Console.WriteLine(Strings.SHAPE_COUNT_FORMAT, matches.Length);
@@ -228,8 +223,7 @@ namespace Lucas
                             Console.WriteLine(shape.Value.Print());
                             if (_autodraw)
                             {
-                                _pipeWriter.WriteLine(string.Join(" ", shape.Key, shape.Value.Stringify()));
-                                _pipeWriter.Flush();
+                                _pipeStream.Send(string.Join(" ", shape.Key, shape.Value.Stringify()));
                             }
                         }
                     }
@@ -237,8 +231,7 @@ namespace Lucas
                     {
                         if (_autodraw)
                         {
-                            _pipeWriter.WriteLine("clear");
-                            _pipeWriter.Flush();
+                            _pipeStream.Send("clear");
                         }
                         Console.WriteLine(Strings.SHAPE_COUNT_FORMAT, _canvas.Count);
                         foreach (var key in _canvas.Keys)
@@ -249,8 +242,7 @@ namespace Lucas
 
                             if (_autodraw)
                             {
-                                _pipeWriter.WriteLine(string.Join(" ", key, shape.Stringify()));
-                                _pipeWriter.Flush();
+                                _pipeStream.Send(string.Join(" ", key, shape.Stringify()));
                             }
                         }
                     }
@@ -308,14 +300,12 @@ namespace Lucas
 
                     if (_autodraw)
                     {
-                        _pipeWriter.WriteLine(string.Join(" ", key, shape.Stringify()));
-                        _pipeWriter.Flush();
+                        _pipeStream.Send(string.Join(" ", key, shape.Stringify()));
                     }
 
                     if (_autodraw)
                     {
-                        _pipeWriter.WriteLine("clear");
-                        _pipeWriter.Flush();
+                        _pipeStream.Send("clear");
                     }
 
                     Console.WriteLine(Strings.LISTING_SHAPES_OVERLAPING_SHAPE, key, shape);
@@ -326,8 +316,7 @@ namespace Lucas
                         Console.WriteLine(overlap.Value.ToString());
                         if (_autodraw)
                         {
-                            _pipeWriter.WriteLine(string.Join(" ", overlap.Key, overlap.Value.Stringify()));
-                            _pipeWriter.Flush();
+                            _pipeStream.Send(string.Join(" ", overlap.Key, overlap.Value.Stringify()));
                         }
                     }
                 });

@@ -8,6 +8,8 @@ namespace Lucas
 {
     using Lucas.Drawing;
     using Lucas.Drawing.Shapes;
+using System.IO;
+    using System.IO.Pipes;
 
     public static class Extensions
     {
@@ -59,6 +61,28 @@ namespace Lucas
             values = result.ToArray();
 
             return pass;
+        }
+
+        public static void Send(this TextWriter writer, string message, Func<bool> constraint)
+        {
+            if (constraint == null || constraint())
+            {
+                writer.WriteLine(message);
+                writer.Flush();
+            }
+        }
+
+        public static bool Send(this NamedPipeServerStream stream, string message, params object[] args)
+        {
+            if (!stream.IsConnected)
+                return false;
+
+            var writer = new StreamWriter(stream);
+
+            writer.WriteLine(message, args);
+            writer.Flush();
+
+            return true;
         }
     }
 }
